@@ -1,0 +1,124 @@
+[
+	// Movement by chars
+
+	{ "keys": ["alt+j"], "command": "move", "args": {"by": "characters", "forward": false, "extend": false} },
+	{ "keys": ["alt+l"], "command": "move", "args": {"by": "characters", "forward": true, "extend": false} },
+
+	{ "keys": ["alt+j"], "command": "move", "args": {"by": "characters", "forward": false, "extend": true},
+		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
+	{ "keys": ["alt+l"], "command": "move", "args": {"by": "characters", "forward": true, "extend": true},
+		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
+
+	// Movement by lines
+
+	{ "keys": ["alt+i"], "command": "move", "args": {"by": "lines", "forward": false, "extend": false} },
+	{ "keys": ["alt+k"], "command": "move", "args": {"by": "lines", "forward": true, "extend": false} },
+
+	{ "keys": ["alt+i"], "command": "move", "args": {"by": "lines", "forward": false, "extend": true},
+		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
+	{ "keys": ["alt+k"], "command": "move", "args": {"by": "lines", "forward": true, "extend": true},
+		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
+
+	// Movement by word
+
+	{ "keys": ["alt+shift+j"], "command": "move", "args": {"by": "words", "forward": false} },
+	{ "keys": ["alt+shift+l"], "command": "move", "args": {"by": "word_ends", "forward": true} },
+
+	{ "keys": ["alt+shift+j"], "command": "move", "args": {"by": "words", "forward": false, "extend": true},
+		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
+	{ "keys": ["alt+shift+l"], "command": "move", "args": {"by": "word_ends", "forward": true, "extend": true},
+		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
+
+	// Movement by pages
+
+	{ "keys": ["alt+shift+i"], "command": "move", "args": {"by": "pages", "forward": false} },
+	{ "keys": ["alt+shift+k"], "command": "move", "args": {"by": "pages", "forward": true} },
+
+	{ "keys": ["alt+shift+i"], "command": "move", "args": {"by": "pages", "forward": false, "extend": true},
+		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
+	{ "keys": ["alt+shift+k"], "command": "move", "args": {"by": "pages", "forward": true, "extend": true},
+		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
+
+	// Movement by subword
+
+	{ "keys": ["alt+u"], "command": "move", "args": {"by": "subwords", "forward": false, "extend": false} },
+	{ "keys": ["alt+o"], "command": "move", "args": {"by": "subword_ends", "forward": true, "extend": false} },
+
+	{ "keys": ["alt+u"], "command": "move", "args": {"by": "subwords", "forward": false, "extend": true},
+		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
+	{ "keys": ["alt+o"], "command": "move", "args": {"by": "subword_ends", "forward": true, "extend": true},
+		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
+
+	// Movement by paragraph
+
+	{ "keys": ["alt+shift+u"], "command": "move", "args": {"by": "paragraphs", "forward": false, "extend": false} },
+	{ "keys": ["alt+shift+o"], "command": "move", "args": {"by": "paragraphs_ends", "forward": true, "extend": false} },
+
+	{ "keys": ["alt+shift+u"], "command": "move", "args": {"by": "paragraphs", "forward": false, "extend": true},
+		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
+	{ "keys": ["alt+shift+o"], "command": "move", "args": {"by": "paragraphs_ends", "forward": true, "extend": true},
+		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
+
+	// Movement to beginning/end of line
+
+	{ "keys": ["alt+h"], "command": "move_to", "args": {"to": "hardbol", "extend": false} },
+	{ "keys": ["alt+m", "m"], "command": "move_to", "args": {"to": "bol", "extend": false} },
+	{ "keys": ["alt+shift+h"], "command": "move_to", "args": {"to": "eol", "extend": false} },
+
+	{ "keys": ["alt+h"], "command": "move_to", "args": {"to": "hardbol", "extend": true},
+		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
+	{ "keys": ["alt+m", "m"], "command": "move_to", "args": {"to": "bol", "extend": true},
+		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
+	{ "keys": ["alt+shift+h"], "command": "move_to", "args": {"to": "eol", "extend": true},
+		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
+
+	// Movement to beginning/end of file
+
+	{ "keys": ["escape", "alt+i"], "command": "move_to", "args": {"to": "bof", "extend": false} },
+	{ "keys": ["escape", "alt+k"], "command": "move_to", "args": {"to": "eof", "extend": false} },
+
+	{ "keys": ["escape", "alt+i"], "command": "move_to", "args": {"to": "bof", "extend": true},
+		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
+	{ "keys": ["escape", "alt+k"], "command": "move_to", "args": {"to": "eof", "extend": true},
+		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
+
+	// Goto line
+
+	{ "keys": ["alt+m", "g"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+
+	// Selection, kill, and yank
+
+	{ "keys": ["alt+space"], "command": "emacs_set_mark" },
+	{ "keys": ["alt+n"], "command": "cancel_mark" },
+	{ "keys": ["alt+x"], "command": "emacs_kill_to_mark" },
+	{ "keys": ["alt+c"], "command": "emacs_kill_ring_save" },
+	{ "keys": ["alt+v"], "command": "emacs_yank" },
+	{ "keys": ["alt+8"], "command": "expand_selection", "args": {"to": "word"} },
+	{ "keys": ["alt+g"], "command": "emacs_kill_line" },
+	{ "keys": ["alt+shift+space"], "command": "expand_selection", "args": {"to": "word"} },
+
+	// Delete
+
+	{ "keys": ["alt+d"], "command": "left_delete" },
+	{ "keys": ["alt+f"], "command": "right_delete" },
+	{ "keys": ["alt+e"], "command": "delete_word", "args": { "forward": false } },
+	{ "keys": ["alt+r"], "command": "delete_word", "args": { "forward": true } },
+	{ "keys": ["alt+w"], "command": "shrink_whitespaces" },
+
+	// Files
+
+	{ "keys": ["alt+m", "f"], "command": "prompt_open_file" },
+	{ "keys": ["alt+m", "alt+f"], "command": "prompt_open_folder" },
+	{ "keys": ["alt+m", "s"], "command": "save" },
+	{ "keys": ["alt+m", "alt+s"], "command": "save_all" },
+
+	{ "keys": ["alt+m", "o"], "command": "switch_file", "args": {"extensions": ["cpp", "cxx", "cc", "c", "hpp", "hxx", "h", "ipp", "inl", "m", "mm"]} },
+
+	{ "keys": ["alt+b"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
+
+	// Windows
+
+	{ "keys": ["alt+s"], "command": "move_cursor_next_pane" },
+	{ "keys": ["alt+shift+s"], "command": "move_cursor_previous_pane" }
+
+]
