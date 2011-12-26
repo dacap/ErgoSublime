@@ -119,6 +119,9 @@
 	// Windows
 
 	{ "keys": ["alt+s"], "command": "move_cursor_next_pane" },
-	{ "keys": ["alt+shift+s"], "command": "move_cursor_previous_pane" }
+	{ "keys": ["alt+shift+s"], "command": "move_cursor_previous_pane" },
 
+	{ "keys": ["alt+1"], "command": "delete_other_windows" },
+	{ "keys": ["alt+2"], "command": "split_window_vertically" },
+	{ "keys": ["alt+shift+2"], "command": "split_window_horizontally" }
 ]
