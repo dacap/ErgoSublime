@@ -10,9 +10,6 @@
 
 import sublime, sublime_plugin
 
-
-# gasg fd s fd( saf s" f das fds a " f dsfdsa df a)
-
 def is_blank_char(chr):
     if chr == " ": return True
     if chr == "\n": return True
