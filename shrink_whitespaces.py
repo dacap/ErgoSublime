@@ -82,3 +82,6 @@ class ShrinkWhitespacesCommand(sublime_plugin.TextCommand):
                 self.view.replace(edit, r, ' ')
             else:
                 self.view.erase(edit, r)
+
+        self.view.sel().clear()
+        self.view.sel().add(sublime.Region(regions[0].a, regions[0].a))
