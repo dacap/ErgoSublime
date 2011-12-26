@@ -19,14 +19,14 @@
 	{ "keys": ["alt+k"], "command": "move", "args": {"by": "lines", "forward": true, "extend": true},
 		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
 
-	// Movement by word
+	// Movement by sexps
 
-	{ "keys": ["alt+shift+j"], "command": "move", "args": {"by": "words", "forward": false} },
-	{ "keys": ["alt+shift+l"], "command": "move", "args": {"by": "word_ends", "forward": true} },
+	{ "keys": ["alt+shift+j"], "command": "backward_sexp" },
+	{ "keys": ["alt+shift+l"], "command": "forward_sexp" },
 
-	{ "keys": ["alt+shift+j"], "command": "move", "args": {"by": "words", "forward": false, "extend": true},
+	{ "keys": ["alt+shift+j"], "command": "backward_sexp", "args": {"extend": true},
 		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
-	{ "keys": ["alt+shift+l"], "command": "move", "args": {"by": "word_ends", "forward": true, "extend": true},
+	{ "keys": ["alt+shift+l"], "command": "forward_sexp", "args": {"extend": true},
 		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
 
 	// Movement by pages
@@ -95,7 +95,7 @@
 	{ "keys": ["alt+v"], "command": "emacs_yank" },
 	{ "keys": ["alt+8"], "command": "expand_selection", "args": {"to": "word"} },
 	{ "keys": ["alt+g"], "command": "emacs_kill_line" },
-	{ "keys": ["alt+shift+space"], "command": "expand_selection", "args": {"to": "word"} },
+	{ "keys": ["alt+shift+space"], "command": "mark_sexp" },
 
 	// Delete
 
