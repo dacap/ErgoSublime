@@ -57,12 +57,15 @@ class ShrinkWhitespacesCommand(sublime_plugin.TextCommand):
     """Removes whitespaces."""
 
     def run(self, edit):
+        eraselines = False
+
         sel = self.view.sel()
         regions = []
         for r in self.view.sel():
             newreg = expand_region_in_white_chars(self.view, r)
             fulllinereg = self.view.full_line(newreg.a)
             if newreg.a == fulllinereg.a and newreg.b == fulllinereg.b-1:
+                eraselines = True
                 newreg = expand_region_in_white_lines(self.view, fulllinereg)
 
             regions.append(newreg)
@@ -73,10 +76,9 @@ class ShrinkWhitespacesCommand(sublime_plugin.TextCommand):
 
         for r in self.view.sel():
             newlines = self.view.substr(r).count('\n')
-            print(newlines)
             if newlines > 1:
                 self.view.replace(edit, r, '\n')
-            elif r.b - r.a > 1:
+            elif not eraselines and r.b - r.a > 1:
                 self.view.replace(edit, r, ' ')
             else:
                 self.view.erase(edit, r)
