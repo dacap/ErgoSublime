@@ -21,7 +21,7 @@ def is_sexp_char(chr):
     if chr >= "0" and chr <= "9": return True
     if chr >= "a" and chr <= "z": return True
     if chr >= "A" and chr <= "Z": return True
-    if chr >= "_": return True
+    if chr == "_": return True
     return False
 
 def get_next_char(view, pt, forward):
