@@ -24,6 +24,14 @@ def is_symbol_char(chr):
     if chr == "_": return True
     return False
 
+def is_open_bracket_char(chr):
+    if chr == "(" or chr == "[" or chr == "{": return True
+    return False
+
+def is_close_bracket_char(chr):
+    if chr == ")" or chr == "]" or chr == "}": return True
+    return False
+
 def get_next_char(view, pt, forward):
     if forward:
         return view.substr(sublime.Region(pt, pt+1))
@@ -40,12 +48,12 @@ def move_point_by_sexp(view, pt, forward):
         if not nested:
             if not in_sexp and nested == 0 and is_blank_char(char):
                 pass
-            elif not in_sexp and char == "(" or char == "[" or char == "{":
+            elif not in_sexp and is_open_bracket_char(char):
                 if not forward:
                     break
                 nested += 1
                 in_sexp = True
-            elif not in_sexp and char == ")" or char == "]" or char == "}":
+            elif not in_sexp and is_close_bracket_char(char):
                 if forward:
                     break
                 nested -= 1
@@ -59,9 +67,9 @@ def move_point_by_sexp(view, pt, forward):
             else:
                 break
         else:
-            if char == "(" or char == "[" or char == "{":
+            if is_open_bracket_char(char):
                 nested += 1
-            elif char == ")" or char == "]" or char == "}":
+            elif is_close_bracket_char(char):
                 nested -= 1
 
         if nested != 0:
