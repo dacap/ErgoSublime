@@ -74,12 +74,12 @@
 
 	// Movement to beginning/end of file
 
-	{ "keys": ["escape", "alt+i"], "command": "move_to", "args": {"to": "bof", "extend": false} },
-	{ "keys": ["escape", "alt+k"], "command": "move_to", "args": {"to": "eof", "extend": false} },
+	{ "keys": ["alt+y"], "command": "move_to", "args": {"to": "bof", "extend": false} },
+	{ "keys": ["alt+shift+y"], "command": "move_to", "args": {"to": "eof", "extend": false} },
 
-	{ "keys": ["escape", "alt+i"], "command": "move_to", "args": {"to": "bof", "extend": true},
+	{ "keys": ["alt+y"], "command": "move_to", "args": {"to": "bof", "extend": true},
 		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
-	{ "keys": ["escape", "alt+k"], "command": "move_to", "args": {"to": "eof", "extend": true},
+	{ "keys": ["alt+shift+y"], "command": "move_to", "args": {"to": "eof", "extend": true},
 		"context": [ { "key": "emacs_has_mark", "operator": "equal", "operand": true } ] },
 
 	// Goto line
