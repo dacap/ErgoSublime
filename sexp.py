@@ -17,7 +17,7 @@ def is_blank_char(chr):
     if chr == "\t": return True
     return False
 
-def is_sexp_char(chr):
+def is_symbol_char(chr):
     if chr >= "0" and chr <= "9": return True
     if chr >= "a" and chr <= "z": return True
     if chr >= "A" and chr <= "Z": return True
@@ -50,11 +50,11 @@ def move_point_by_sexp(view, pt, forward):
                     break
                 nested -= 1
                 in_sexp = True
-            elif not in_sexp and not is_sexp_char(char):
+            elif not in_sexp and not is_symbol_char(char):
                 pass
-            elif in_sexp and is_sexp_char(char):
+            elif in_sexp and is_symbol_char(char):
                 pass
-            elif is_sexp_char(char):
+            elif is_symbol_char(char):
                 in_sexp = True
             else:
                 break
