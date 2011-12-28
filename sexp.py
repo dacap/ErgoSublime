@@ -117,4 +117,4 @@ class MarkSexpCommand(sublime_plugin.TextCommand):
         pt2 = self.view.sel()[0].end()
         pt2 = move_point_by_sexp(self.view, pt2, True)
         self.view.sel().clear()
-        self.view.sel().add(sublime.Region(pt1, pt2))
+        self.view.sel().add(sublime.Region(pt2, pt1))
