@@ -95,8 +95,13 @@ class MoveBySexpCommand(sublime_plugin.TextCommand):
     def run(self, edit, forward, extend):
         pt = self.view.sel()[0].b
         pt2 = move_point_by_sexp(self.view, pt, forward)
-        self.view.sel().clear()
-        self.view.sel().add(sublime.Region(pt2, pt2))
+        for i in range(abs(pt2-pt)):
+            self.view.run_command('move', {
+                "by": "characters",
+                "forward": forward,
+                "extend": extend
+                #, "amount": abs(pt2-pt)    # It does not work
+                })
 
 class ForwardSexpCommand(sublime_plugin.TextCommand):
     def run(self, edit, extend = False):
