@@ -113,8 +113,8 @@ class BackwardSexpCommand(sublime_plugin.TextCommand):
 
 class MarkSexpCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        pt1 = self.view.sel()[0].begin()
-        pt2 = self.view.sel()[0].end()
-        pt2 = move_point_by_sexp(self.view, pt2, True)
-        self.view.sel().clear()
-        self.view.sel().add(sublime.Region(pt2, pt1))
+        for s in self.view.sel():
+            pt1 = s.begin()
+            pt2 = s.end()
+            pt2 = move_point_by_sexp(self.view, pt2, True)
+            self.view.sel().add(sublime.Region(pt2, pt1))
